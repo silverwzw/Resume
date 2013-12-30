@@ -28,10 +28,20 @@
 }
 
                     % 定义一般栏目
-\newcommand{\Section}[2]{
-    \hspace*{20pt}{#1}\\[-3pt]
+\newenvironment{CVsection}[1]{
+    \hspace*{20pt}{\bf \Large #1}\\[-3pt]
     \rule[5pt]{\textwidth}{1pt}\\
-    #2\\[10pt]
+}{
+    \hfill\\[10pt]
+}
+
+\newenvironment{CVExperience}[3]{
+    {\bf #1}, #2\hfill #3\\[2pt]
+    \begin{itemize}
+        \setlength{\parsep}{0pt}
+        \setlength{\itemsep}{0pt}
+}{
+    \end{itemize}
 }
 
 \begin{document}
@@ -39,14 +49,14 @@
         {(919) 455-3067}
         {1220 University CT APT 203, Raleigh, NC 27606}
         {job@silverwzw.com}\\[10pt]
-    \Section{\bf\Large E\large DUCATION}{
+    \begin{CVsection}{\Large E\large DUCATION}
         \begin{tabular}{L!{\VRule}M R}
-        2012--2014 & {\bf Master} in Computer Science, NC State Univ. & GPA 3.71/4.0\\[3pt]
+        2012--2014 & {\bf Master} in {\bf Computer Science}, NC State Univ. & GPA 3.71/4.0\\[3pt]
         2010--2012 & {\bf Master} in Operations Research, NC State Univ. & GPA 3.86/4.0 \\[3pt]
         2006--2010 & {\bf Bachelor} in Electronic Engineering, Zhejiang Univ., China & GPA 82/100
         \end{tabular}
-    }
-    \Section{\bf\Large S\large KILLS}{
+    \end{CVsection}
+    \begin{CVsection}{\Large S\large KILLS}
         \begin{tabular}{L!{\VRule}C}
         Proficient in   & C, C++, Java and Javascript\\[3pt]
         Experienced     & bash script, Assembly, SQL, Matlab, ASP, VBA, HTML \\[3pt]
@@ -54,9 +64,23 @@
                         & gdb, vim, make, git, Eclipse, Visual Studio, IIS, OPNET, Wireshark, tcpdump \\[1.5pt]
                         & Amazon EC2, Google App Engine
         \end{tabular}
-    }
-    \Section{\bf\Large E\large XPERIENCE}{
-        i
-    }
- 
+    \end{CVsection}
+    \begin{CVsection}{\Large E\large XPERIENCE}
+        \begin{CVExperience}{Cluster Operation \& Maintenance}{Center for Innovation Management Studies}{Present}
+            \item Developed auto-maintain scripts to reduce the demand of manual maintenance
+            \item Maintain IBM PPC cluster and RHEL x86 cluster: - Daily maintenance, operating and device installation.
+            \item Support IBM Software: Deploy, upgrade, patch, migration and backend maintenance for IBM BigInsight and Content Analysis System.
+        \end{CVExperience}
+    \end{CVsection}
+    
+    
+    
+%   \Experance{Cluster Operation \& Maintenance}{Center for Innovation Management Studies}{Present}
+%        \begin{itemize}
+%            \setlength{\parsep}{0pt}
+%            \setlength{\itemsep}{0pt}
+%            \item Developed auto-maintain scripts to reduce the demand of manual maintenance
+%            \item Maintain IBM PPC cluster and RHEL x86 cluster: - Daily maintenance, operating and device installation.
+%            \item Support IBM Software: Deploy, upgrade, patch, migration and backend maintenance for IBM BigInsight and Content Analysis System.
+%        \end{itemize}
 \end{document}
