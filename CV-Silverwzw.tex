@@ -1,10 +1,10 @@
 \documentclass[10pt,oneside,a4paper,draft]{article} % 类型定义
 
-\usepackage{array, lipsum, bibentry,dcolumn}
+\usepackage{array, lipsum, bibentry}
 \usepackage{calc}
 
                     % 版面定义
-\usepackage[left=2cm,right=1.2cm,top=1.8cm,bottom=0cm,nofoot]{geometry}
+\usepackage[left=2.5cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
 
 \pagestyle{empty}   % 无页眉页脚
 \linespread{0.9}    % 行距0.9倍
@@ -19,7 +19,7 @@
 \newcommand\VRule{\vrule width 0.5pt}
 
                     % 定义简历头
-\newcommand{\Applicant}[4]{
+\newcommand{\CVtitle}[4]{
     \makebox[\textwidth][c]{\bf\Huge #1}\\[1pt]
     \makebox[0.2\textwidth][l]{\footnotesize  #2}\hspace{-3pt}
     \makebox[0.6\textwidth][c]{\footnotesize  #3}\hspace{-3pt}
@@ -29,58 +29,79 @@
 
                     % 定义一般栏目
 \newenvironment{CVsection}[1]{
+% 栏目标题，缩进20pt
     \hspace*{20pt}{\bf \Large #1}\\[-3pt]
+% 栏目名称分割线
     \rule[5pt]{\textwidth}{1pt}\\
 }{
-    \hfill\\[10pt]
+% 使用\hfill\\避免直接换行造成列表环境错误
+% 使用\hspace{-1pt}避免环境尾部有长度为textwidth的对象导致\hfill后溢出
+% 栏目默认间距10pt
+    \hspace{-10pt}\hfill\\[10pt]
 }
 
-\newenvironment{CVExperience}[3]{
+\newenvironment{CVexperience}[3]{
     {\bf #1}, #2\hfill #3\\[2pt]
     \begin{itemize}
         \setlength{\parsep}{0pt}
-        \setlength{\itemsep}{0pt}
+        \setlength{\itemsep}{0pt}\vspace{-16pt}
 }{
     \end{itemize}
 }
 
 \begin{document}
-    \Applicant{Zhuowei (Steven) Wang}
+    \CVtitle{Zhuowei (Steven) Wang}
         {(919) 455-3067}
         {1220 University CT APT 203, Raleigh, NC 27606}
         {job@silverwzw.com}\\[10pt]
     \begin{CVsection}{\Large E\large DUCATION}
         \begin{tabular}{L!{\VRule}M R}
-        2012--2014 & {\bf Master} in {\bf Computer Science}, NC State Univ. & GPA 3.71/4.0\\[3pt]
-        2010--2012 & {\bf Master} in Operations Research, NC State Univ. & GPA 3.86/4.0 \\[3pt]
-        2006--2010 & {\bf Bachelor} in Electronic Engineering, Zhejiang Univ., China & GPA 82/100
+            2012--2014 & {\bf Master} in {\bf Computer Science}, NC State Univ. & GPA 3.71/4.0\\[3pt]
+            2010--2012 & {\bf Master} in Operations Research, NC State Univ. & GPA 3.86/4.0 \\[3pt]
+            2006--2010 & {\bf Bachelor} in Electronic Engineering, Zhejiang Univ., China & GPA 82/100
         \end{tabular}
     \end{CVsection}
     \begin{CVsection}{\Large S\large KILLS}
         \begin{tabular}{L!{\VRule}C}
-        Proficient in   & C, C++, Java and Javascript\\[3pt]
-        Experienced     & bash script, Assembly, SQL, Matlab, ASP, VBA, HTML \\[3pt]
-        Familiar with   & MySQL, JQuery, Servlet, XML, JSON, RESTful, Ruby, R, SAS, Go, \LaTeX \\[1.5pt]
-                        & gdb, vim, make, git, Eclipse, Visual Studio, IIS, OPNET, Wireshark, tcpdump \\[1.5pt]
-                        & Amazon EC2, Google App Engine
+            Proficient in   & C, C++, Java and Javascript\\[3pt]
+            Experienced     & bash script, Assembly, SQL, Matlab, ASP, VBA, HTML \\[3pt]
+            Familiar with   & MySQL, JQuery, Servlet, XML, JSON, RESTful, Ruby, R, SAS, Go, \LaTeX \\[1.5pt]
+                            & gdb, vim, make, git, Eclipse, Visual Studio, IIS, OPNET, Wireshark, tcpdump \\[1.5pt]
+                            & Amazon EC2, Google App Engine
         \end{tabular}
     \end{CVsection}
     \begin{CVsection}{\Large E\large XPERIENCE}
-        \begin{CVExperience}{Cluster Operation \& Maintenance}{Center for Innovation Management Studies}{Present}
+        \begin{CVexperience}{Cluster Operation \& Maintenance}{Center for Innovation Management Studies}{Present}
             \item Developed auto-maintain scripts to reduce the demand of manual maintenance
-            \item Maintain IBM PPC cluster and RHEL x86 cluster: - Daily maintenance, operating and device installation.
+            \item Maintenance to IBM PPC cluster and RHEL x86 cluster: - Daily maintenance, operating and device installation.
             \item Support IBM Software: Deploy, upgrade, patch, migration and backend maintenance for IBM BigInsight and Content Analysis System.
-        \end{CVExperience}
+        \end{CVexperience}
+        \begin{CVexperience}{Research Assistant}{Computer Science Dept., NC State Univ.}{Present}
+            \item Research in the field of Natural Language Processing: Search Query, keywords correlation and result overlaps.
+            \item Developed a prototype type Content Analysis system based on Java, MySQL and GATE library
+        \end{CVexperience}
+        \begin{CVexperience}{Web Developer}{Zhejiang Univ.}{2006-2008}
+            \item Designed and implemented an ASP/HTML/AJAX based web system for university’s volunteer center in team of three. The system is for news publishing, volunteer peer reviewing and voluntary activities management.
+            \item Weekly maintenance to the Campus CMS web system.
+        \end{CVexperience}
+        \begin{CVexperience}{ICE9 Compiler Construct}{Project}{Fall 2011}
+            \item Developed a compiler compiles ice9 code to tiny machine assembly.
+            \item Using C and flex for lexical analysis, C and bison for parser and C++ for intermediate code transformation.
+        \end{CVexperience}
+        \begin{CVexperience}{XINU Kernel Patch develop}{Project}{2012}
+            \item Developed XINU kernel patch which adds functionality of semaphore and improves scheduler performance.
+            \item Using C and Assembly, using cross-compile to develop locally and deploy to remote.
+        \end{CVexperience}
+        \begin{CVexperience}{Open Source Project Expertiza}{OSS Patch Contributor}{Spring 2013}
+            \item Contribute two GUI patches for project Expertiza, Led a team of 3.
+            \item Expertiza is an open source peer viewing web system developed using Ruby on Rails, SqlLite and JQuery.
+        \end{CVexperience}
+        \begin{CVexperience}{Performance modeling and simulation for Markov Service System}{Project}{Fall 2012}
+            \item Developed a C++ simulation library to emulate the performance of general service network, analysis the sensitivity and bottleneck in the network and validate the theoretical results of statistical quantities.
+        \end{CVexperience}
+        \begin{CVexperience}{Proofreader}{{\bf Programming C (ISBN 7030128281)}}{2004}
+            \item Proofread a 262 page book on the topic of basic C programming and algorithms.
+            \item Published by Science Press in 2004 and adopted as textbook by Hangzhou Dianzi Univ. and China Jiliang Univ.
+        \end{CVexperience}
     \end{CVsection}
-    
-    
-    
-%   \Experance{Cluster Operation \& Maintenance}{Center for Innovation Management Studies}{Present}
-%        \begin{itemize}
-%            \setlength{\parsep}{0pt}
-%            \setlength{\itemsep}{0pt}
-%            \item Developed auto-maintain scripts to reduce the demand of manual maintenance
-%            \item Maintain IBM PPC cluster and RHEL x86 cluster: - Daily maintenance, operating and device installation.
-%            \item Support IBM Software: Deploy, upgrade, patch, migration and backend maintenance for IBM BigInsight and Content Analysis System.
-%        \end{itemize}
 \end{document}
