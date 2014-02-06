@@ -1,24 +1,17 @@
-\documentclass[10pt,oneside,a4paper,draft]{article} % 类型定义
+                    % 类型定义 10pt font 单页 信纸
+\documentclass[10pt,oneside,letter,final]{article}
 
 \usepackage{array, lipsum, bibentry}
 \usepackage{calc}
 
                     % 版面定义
-\usepackage[left=2.5cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[left=2.0cm,right=1.5cm,top=1.8cm,bottom=1.5cm,nofoot]{geometry}
 
 \pagestyle{empty}   % 无页眉页脚
 \linespread{0.9}    % 行距0.9倍
 \parindent=0pt      % 缩进值为0
 
-\newcolumntype{L}{>{\raggedleft}p{0.14\textwidth}}
-\newcolumntype{M}{p{0.6\textwidth}}
-\newcolumntype{R}{p{0.18\textwidth}}
-\newcolumntype{C}{p{0.8\textwidth}}
-
-                    % 定义分割线
-\newcommand\VRule{\vrule width 0.5pt}
-
-                    % 定义简历头
+                    % 简历头部样式定义
 \newcommand{\CVtitle}[4]{
     \makebox[\textwidth][c]{\bf\Huge #1}\\[1pt]
     \makebox[0.2\textwidth][l]{\footnotesize  #2}\hspace{-3pt}
@@ -27,19 +20,24 @@
     \rule[5pt]{\textwidth}{.5pt}
 }
 
-                    % 定义一般栏目
+                    % 栏目样式定义
 \newenvironment{CVsection}[1]{
-% 栏目标题，缩进20pt
     \hspace*{20pt}{\bf \Large #1}\\[-3pt]
-% 栏目名称分割线
     \rule[5pt]{\textwidth}{1pt}\\
 }{
-% 使用\hfill\\避免直接换行造成列表环境错误
-% 使用\hspace{-1pt}避免环境尾部有长度为textwidth的对象导致\hfill后溢出
-% 栏目默认间距10pt
     \hspace{-10pt}\hfill\\[10pt]
 }
 
+                    % tabular格式控制定义
+\newcolumntype{L}{>{\raggedleft}p{0.14\textwidth}}
+\newcolumntype{M}{p{0.6\textwidth}}
+\newcolumntype{R}{p{0.18\textwidth}}
+\newcolumntype{C}{p{0.8\textwidth}}
+
+                    % tabular纵向分割线样式定义
+\newcommand\VRule{\vrule width 0.5pt}
+
+                    % Experance栏内部样式定义
 \newenvironment{CVexperience}[3]{
     {\bf #1}, #2\hfill #3\\[2pt]
     \begin{itemize}
@@ -49,59 +47,92 @@
     \end{itemize}
 }
 
+                    % Experance栏内部样式定义
+\newenvironment{CVproject}[2]{
+    {\bf #1}\hfill #2\\[2pt]
+    \begin{itemize}
+        \setlength{\parsep}{0pt}
+        \setlength{\itemsep}{0pt}\vspace{-16pt}
+}{
+    \end{itemize}
+}
+
 \begin{document}
+                                % 输出简历头部
     \CVtitle{Zhuowei (Steven) Wang}
         {(919) 455-3067}
         {1220 University CT APT 203, Raleigh, NC 27606}
         {job@silverwzw.com}\\[10pt]
+                                % 输出Education栏
     \begin{CVsection}{\Large E\large DUCATION}
+                                % 输出Education栏具体内容
         \begin{tabular}{L!{\VRule}M R}
             2012--2014 & {\bf Master} in {\bf Computer Science}, NC State Univ. & GPA 3.71/4.0\\[3pt]
-            2010--2012 & {\bf Master} in Operations Research, NC State Univ. & GPA 3.86/4.0 \\[3pt]
+            2010--2012 & {\bf Master} in Operations Research, NC State Univ. & GPA 3.82/4.0 \\[3pt]
             2006--2010 & {\bf Bachelor} in Electronic Engineering, Zhejiang Univ., China & GPA 82/100
         \end{tabular}
     \end{CVsection}
+                                % 输出Skills栏
     \begin{CVsection}{\Large S\large KILLS}
+                                % 输出Skills栏具体内容
         \begin{tabular}{L!{\VRule}C}
-            Proficient in   & C, C++, Java and Javascript\\[3pt]
+            Proficient in   & C, Java, C++ and Javascript\\[3pt]
             Experienced     & bash script, Assembly, SQL, Matlab, ASP, VBA, HTML \\[3pt]
-            Familiar with   & MySQL, JQuery, Servlet, XML, JSON, RESTful, Ruby, R, SAS, Go, \LaTeX \\[1.5pt]
-                            & gdb, vim, make, git, Eclipse, Visual Studio, IIS, OPNET, Wireshark, tcpdump \\[1.5pt]
+            work with       & mongoDB, MySQL, JQuery, Servlet, JSON, XML, RESTful, Ruby, Node.js, Go, \LaTeX \\[1.5pt]
+                            & gdb, vim, make, git, Eclipse, Visual Studio, FUSE, IIS, OPNET, Wireshark, tcpdump \\[1.5pt]
                             & Amazon EC2, Google App Engine
         \end{tabular}
     \end{CVsection}
+ 				% 输出Projects栏
+    \begin{CVsection}{\Large P\large ROJECTS}
+        \begin{CVproject}{KabiFS - a Distributed File System with Git-like version control capability}{Present}
+            \item a File System based on mongoDB with concurrenct read write support
+            \item Git-like version control - discard changes, mount a previous version, even branching.
+            \item Distributed, FUSE/HDFS interface, NFS protocol. Load balancing and Map-Reduce support.
+        \end{CVproject}
+        
+        \begin{CVproject}{Scrawler - a Content-aware Crawler}{Fall 2013}
+            \item a crawler that use Natrual Language Processing (NLP) module to improve the hit rate on certain topic.
+            \item Use NLP module to understand web content, determine the context of a link and  assign priorities to links
+            \item Crawler take advatages from NLP module feedback and fetch links according to priority.
+        \end{CVproject}
+        
+        \begin{CVproject}{P\&D cracker - a spare time project to crack P\&D}{Spring 2013}
+            \item Use pptpd, bind9 and GAE-Java to build a MITM attack environment
+            \item backend in Java with Servlet and AJAX frontend.
+            \item Puzzle and dragon is the most popular game in Apple app store and Google Play Market in 2013.
+        \end{CVproject}
+        
+        \begin{CVproject}{OTHER PROJECTS}{}
+            \item {\bf ICE9 compiler,} A toy compiler transform ICE9 to Tiny Machine code. Written in flex, bison and C++
+            \item {\bf XINU Kernel Patch,} XINU Kernel patch, for better semaphores and proc scheduler. in C and Assembly
+            \item {\bf Open Source Project Expertiza,} Contributs a patch for better graphic, in Javascript
+            \item {\bf {Performance modeling and simulation for Markov Service System}}
+        \end{CVproject}
+    \end{CVsection}
+    \\[-20pt]                                % 输出Experience栏
     \begin{CVsection}{\Large E\large XPERIENCE}
-        \begin{CVexperience}{Cluster Operation \& Maintenance}{Center for Innovation Management Studies}{Present}
-            \item Developed auto-maintain scripts to reduce the demand of manual maintenance
-            \item Maintenance to IBM PPC cluster and RHEL x86 cluster: - Daily maintenance, operating and device installation.
-            \item Support IBM Software: Deploy, upgrade, patch, migration and backend maintenance for IBM BigInsight and Content Analysis System.
-        \end{CVexperience}
+                                %输出第一项Experience
         \begin{CVexperience}{Research Assistant}{Computer Science Dept., NC State Univ.}{Present}
-            \item Research in the field of Natural Language Processing: Search Query, keywords correlation and result overlaps.
-            \item Developed a prototype type Content Analysis system based on Java, MySQL and GATE library
+                                %输出第二项Experience具体内容
+            \item in the field of File System and Natural Language Processing
+            \item Developed a Content-aware Crawler based on Java, MySQL and GATE (an NLP library)
+            \item Currently working on a Distributed, Git-like (with Version Control) File System based on mongoDB 
         \end{CVexperience}
-        \begin{CVexperience}{Web Developer}{Zhejiang Univ.}{2006-2008}
-            \item Designed and implemented an ASP/HTML/AJAX based web system for university’s volunteer center in team of three. The system is for news publishing, volunteer peer reviewing and voluntary activities management.
-            \item Weekly maintenance to the Campus CMS web system.
+                                %输出第二项Experience
+        \begin{CVexperience}{Cluster Operation \& Maintenance Intern}{Center for Innovation Management Studies}{Present}
+                                %输出第一项Experience具体内容
+            \item on IBM PPC and RHEL x86 clusters - Bash develop, Linux maintenance and operating, device installation.
+            \item IBM Software Support: Deploy, migration and maintenance for IBM BigInsight and Content Analysis Sys.
         \end{CVexperience}
-        \begin{CVexperience}{ICE9 Compiler Construct}{Project}{Fall 2011}
-            \item Developed a compiler compiles ice9 code to tiny machine assembly.
-            \item Using C and flex for lexical analysis, C and bison for parser and C++ for intermediate code transformation.
+        
+        \begin{CVexperience}{Web Developer Intern}{Zhejiang Univ.}{2006-2008}
+            \item Designed and implemented a web system for news publishing, peer reviewing, member and activity management.
+            \item maintenance to the Undergraduate Campus CMS web system.
         \end{CVexperience}
-        \begin{CVexperience}{XINU Kernel Patch develop}{Project}{2012}
-            \item Developed XINU kernel patch which adds functionality of semaphore and improves scheduler performance.
-            \item Using C and Assembly, using cross-compile to develop locally and deploy to remote.
-        \end{CVexperience}
-        \begin{CVexperience}{Open Source Project Expertiza}{OSS Patch Contributor}{Spring 2013}
-            \item Contribute two GUI patches for project Expertiza, Led a team of 3.
-            \item Expertiza is an open source peer viewing web system developed using Ruby on Rails, SqlLite and JQuery.
-        \end{CVexperience}
-        \begin{CVexperience}{Performance modeling and simulation for Markov Service System}{Project}{Fall 2012}
-            \item Developed a C++ simulation library to emulate the performance of general service network, analysis the sensitivity and bottleneck in the network and validate the theoretical results of statistical quantities.
-        \end{CVexperience}
-        \begin{CVexperience}{Proofreader}{{\bf Programming C (ISBN 7030128281)}}{2004}
-            \item Proofread a 262 page book on the topic of basic C programming and algorithms.
-            \item Published by Science Press in 2004 and adopted as textbook by Hangzhou Dianzi Univ. and China Jiliang Univ.
-        \end{CVexperience}
+    \end{CVsection}
+    \\[-20pt]
+    \begin{CVsection}{\Large H\large ONORS}
+        Outstanding Acadamic Performance Award,\quad Outstanding Undergraduate Student Award\hfill (Zhejiang Univ.)
     \end{CVsection}
 \end{document}
