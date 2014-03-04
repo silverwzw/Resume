@@ -83,12 +83,13 @@
                             & Amazon EC2, Google App Engine
         \end{tabular}
     \end{CVsection}
- 				% 输出Projects栏
+
     \begin{CVsection}{\Large P\large ROJECTS}
-        \begin{CVproject}{KabiFS - a Distributed File System with Git-like version control capability}{Present}
-            \item a File System based on mongoDB with concurrenct read write support
+        \begin{CVproject}{KabiFS - a Distributed Deduplicate File System with Git-like version control capability}{Present}
+            \item a Distributed File System based on mongoDB with FUSE interface
             \item Git-like version control - discard changes, mount a previous version, even branching.
-            \item Distributed, FUSE/HDFS interface, NFS protocol. Load balancing and Map-Reduce support.
+            \item Supports mutiple client concurrenct read/write witout Lock (Lock-free).
+            \item Deduplicate: automatically discard duplicate blocks.
         \end{CVproject}
         
         \begin{CVproject}{Scrawler - a Content-aware Crawler}{Fall 2013}
@@ -126,7 +127,7 @@
             \item IBM Software Support: Deploy, migration and maintenance for IBM BigInsight and Content Analysis Sys.
         \end{CVexperience}
         
-        \begin{CVexperience}{Web Developer Intern}{Zhejiang Univ.}{2006-2008}
+        \begin{CVexperience}{Web Developer}{Zhejiang Univ. (Student Workshop)}{2006-2008}
             \item Designed and implemented a web system for news publishing, peer reviewing, member and activity management.
             \item maintenance to the Undergraduate Campus CMS web system.
         \end{CVexperience}
