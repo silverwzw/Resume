@@ -60,16 +60,16 @@
 \begin{document}
                                 % 输出简历头部
     \CVtitle{Zhuowei (Steven) Wang}
-        {(919) 455-3067}
-        {1220 University CT APT 203, Raleigh, NC 27606}
-        {job@silverwzw.com}\\[10pt]
+        {(000) 000-0000}
+        {-- - ---- --, New York, NY, USA 10000}
+        {---@---------.---}\\[10pt]
                                 % 输出Education栏
     \begin{CVsection}{\Large E\large DUCATION}
                                 % 输出Education栏具体内容
         \begin{tabular}{L!{\VRule}M R}
-            2012--2014 & {\bf Master} in {\bf Computer Science}, NC State Univ. & GPA 3.71/4.0\\[3pt]
-            2010--2012 & {\bf Master} in Operations Research, NC State Univ. & GPA 3.82/4.0 \\[3pt]
-            2006--2010 & {\bf Bachelor} in Electronic Engineering, Zhejiang Univ., China & GPA 82/100
+            2012--2014 & {\bf Master} in {\bf Computer Science}, NC State Univ. & GPA -.--/4.0\\[3pt]
+            2010--2012 & {\bf Master} in Operations Research, NC State Univ. & GPA -.--/4.0 \\[3pt]
+            2006--2010 & {\bf Bachelor} in Electronic Engineering, Zhejiang Univ., China & GPA --/100
         \end{tabular}
     \end{CVsection}
                                 % 输出Skills栏
@@ -78,62 +78,64 @@
         \begin{tabular}{L!{\VRule}C}
             Proficient in   & C, Java, C++ and Javascript\\[3pt]
             Experienced     & bash script, Assembly, SQL, Matlab, ASP, VBA, HTML \\[3pt]
-            work with       & mongoDB, MySQL, JQuery, Servlet, JSON, XML, RESTful, Ruby, Node.js, Go, \LaTeX \\[1.5pt]
-                            & gdb, vim, make, git, Eclipse, Visual Studio, FUSE, IIS, OPNET, Wireshark, tcpdump \\[1.5pt]
-                            & Amazon EC2, Google App Engine
+            work with       & mongoDB, MySQL, JQuery, Servlet, JSON, XML, RESTful, Node.js, Go, \LaTeX, FUSE \\[1.5pt]
+                            & gdb, git, Eclipse, FUSE, IIS, Amazon EC2, Google App Engine
         \end{tabular}
     \end{CVsection}
 
+     \begin{CVsection}{\Large W\large ORKING \Large E\large XPERIENCE}
+                                %输出第一项Experience
+		\begin{CVexperience}{Software Developer}{Bloomberg LP, NY}{Present}
+                                %输出第一项Experience具体内容
+			\item R\&D in Software Infrastructure
+			\item develop and maintain the Javascript/C++ Develop Framework for colleagues
+		\end{CVexperience}
+                                %输出第二项Experience
+        \begin{CVexperience}{Research Assistant}{Computer Science Dept., NC State Univ.}{2013-2014}
+            \item developed a Distributed Snapshot File System based on mongoDB 
+            \item developed a NLP Crawler based on Java, MySQL and GATE library
+        \end{CVexperience}
+
+    \end{CVsection}
+    \\[-20pt]
+				% 输出Projects栏
     \begin{CVsection}{\Large P\large ROJECTS}
-        \begin{CVproject}{KabiFS - a Distributed Deduplicate File System with Git-like version control capability}{Present}
-            \item a Distributed File System based on mongoDB with FUSE interface
-            \item Git-like version control - discard changes, mount a previous version, even branching.
-            \item Supports mutiple client concurrenct read/write witout Lock (Lock-free).
-            \item Deduplicate: automatically discard duplicate blocks.
+        \begin{CVproject}{KabiFS - a Distributed Snapshot File System}{2014}
+            \item Distributed File System based on mongoDB with concurrent read write support
+            \item Efficient Snapshot based on Rolling Checksum - discard changes, checkout previous edition, even branching.
         \end{CVproject}
         
         \begin{CVproject}{Scrawler - a Content-aware Crawler}{Fall 2013}
-            \item a crawler that use Natrual Language Processing (NLP) module to improve the hit rate on certain topic.
-            \item Use NLP module to understand web content, determine the context of a link and  assign priorities to links
-            \item Crawler take advatages from NLP module feedback and fetch links according to priority.
+            \item a crawler that use Natural Language Processing (NLP) module to improve the hit rate on certain topic.
+            \item use NLP module to parse web content, determine the context of a link and assign priorities to links
         \end{CVproject}
         
         \begin{CVproject}{P\&D cracker - a spare time project to crack P\&D}{Spring 2013}
-            \item Use pptpd, bind9 and GAE-Java to build a MITM attack environment
-            \item backend in Java with Servlet and AJAX frontend.
-            \item Puzzle and dragon is the most popular game in Apple app store and Google Play Market in 2013.
+            \item use pptpd, bind9 and GAE-Java to build a MITM attack environment
+            \item MITM Server backend in Java Servlet and AJAX frontend.
         \end{CVproject}
         
         \begin{CVproject}{OTHER PROJECTS}{}
-            \item {\bf ICE9 compiler,} A toy compiler transform ICE9 to Tiny Machine code. Written in flex, bison and C++
+            \item {\bf ICE9 compiler,} A toy compiler that transforms ICE9 to Tiny Machine code, based on flex, bison and C++
             \item {\bf XINU Kernel Patch,} XINU Kernel patch, for better semaphores and proc scheduler. in C and Assembly
-            \item {\bf Open Source Project Expertiza,} Contributs a patch for better graphic, in Javascript
-            \item {\bf {Performance modeling and simulation for Markov Service System}}
+            \item {\bf {Performance modelling and simulation for Markov Service System}}
         \end{CVproject}
     \end{CVsection}
     \\[-20pt]                                % 输出Experience栏
-    \begin{CVsection}{\Large E\large XPERIENCE}
-                                %输出第一项Experience
-        \begin{CVexperience}{Research Assistant}{Computer Science Dept., NC State Univ.}{Present}
-                                %输出第二项Experience具体内容
-            \item in the field of File System and Natural Language Processing
-            \item Developed a Content-aware Crawler based on Java, MySQL and GATE (an NLP library)
-            \item Currently working on a Distributed, Git-like (with Version Control) File System based on mongoDB 
-        \end{CVexperience}
-                                %输出第二项Experience
-        \begin{CVexperience}{Cluster Operation \& Maintenance Intern}{Center for Innovation Management Studies}{Present}
-                                %输出第一项Experience具体内容
-            \item on IBM PPC and RHEL x86 clusters - Bash develop, Linux maintenance and operating, device installation.
-            \item IBM Software Support: Deploy, migration and maintenance for IBM BigInsight and Content Analysis Sys.
+    \begin{CVsection}{\Large I\large NTERNSHIPS}
+        \begin{CVexperience}{Cluster Operation \& Maintenance Intern}{Centre for Innovation Management Studies}{2013-2014}
+            \item server maintenance on IBM 64-bit PowerPC and Red Hat Enterprise x86
+			\item duties include Bash script development, Linux daily maintenance and hardware installation.
         \end{CVexperience}
         
-        \begin{CVexperience}{Web Developer}{Zhejiang Univ. (Student Workshop)}{2006-2008}
-            \item Designed and implemented a web system for news publishing, peer reviewing, member and activity management.
-            \item maintenance to the Undergraduate Campus CMS web system.
+        \begin{CVexperience}{Web Developer}{Lantian Campus Administrative, Zhejiang Univ.}{2006-2008}
+            \item designed and implemented a web system for news publishing, peer reviewing, member and activity management.
+            \item maintenance to the Campus CMS system for undergraduates.
         \end{CVexperience}
+
     \end{CVsection}
     \\[-20pt]
     \begin{CVsection}{\Large H\large ONORS}
-        Outstanding Acadamic Performance Award,\quad Outstanding Undergraduate Student Award\hfill (Zhejiang Univ.)
+        Outstanding Academic Performance Award,\quad Outstanding Undergraduate Student Award\hfill (Zhejiang Univ.)
     \end{CVsection}
 \end{document}
